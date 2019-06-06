@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Walls
+comment1.params=
+comment1.target=Walls()
+comment1.text=\r\n\ Creates\ the\ list\ of\ wall\ positions\ to\ put\ on\ the\ ArrayList\r\n\ Wall\ position\ is\ not\ random,\ so\ positions\ specified\ in\ constructor.\ \r\n
+comment2.params=gc
+comment2.target=void\ render(javafx.scene.canvas.GraphicsContext)
+comment3.params=x\ y
+comment3.target=Pair\ pair(int,\ int)
+numComments=4
