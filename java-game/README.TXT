@@ -1,11 +1,12 @@
 PROJECT TITLE: "Conference Game"
-PURPOSE OF PROJECT: for class credit
+PURPOSE OF PROJECT: for class credit*
 VERSION or DATE: 3.27.18
 HOW TO START THIS PROJECT: Run the JavaFX application to begin
-AUTHORS: Leah Behr (inspired by an example from an online tutorial - URL below); Pair class contributed by Michael Siff
+AUTHORS: Leah Behr (inspired by an example from an online tutorial**); Pair class contributed by Michael Siff (professor)
 USER INSTRUCTIONS: Have fun!
 
-https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
+*This project was created as an individual coding project, rather than a class assignment. As such, there were no specific guidelines or requirements for this project. 
+**URL- https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
 
 Notes: 
 Current version includes canvas, event handlers. Need to be able to animate the game itself. 
