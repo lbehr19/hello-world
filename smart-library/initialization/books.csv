@@ -1,0 +1,95 @@
+isbn, book_title, author, year_read, series_name, series_pos, book_genre
+9780345338587, On a Pale Horse, Piers Anthony, 2010, Incarnations of Immortality, 1, Fantasy
+9780345313157, Bearing an Hourglass, Piers Anthony, 2010, Incarnations of Immortality, 2, Fantasy
+9780345318855, With a Tangled Skein, Piers Anthony, 2010, Incarnations of Immortality, 3, Fantasy
+9780345322210, Wielding a Red Sword, Piers Anthony, 2010, Incarnations of Immortality, 4, Fantasy
+9780345347534, A Spell for Chameleon, Piers Anthony, 2013, Xanth, 1, Fantasy
+9780345350589, The Source of Magic, Piers Anthony, 2013, Xanth, 2, Fantasy
+9780345350480, Castle Roogna, Piers Anthony, 2013, Xanth, 3, Fantasy
+9780345352460, Centaur Aisle, Piers Anthony, 2013, Xanth, 4, Fantasy
+9780812550702, Ender's Game, Orson Scott Card, 2009, Ender series, 1, Scifi
+9780812550757, Speaker for the Dead, Orson Scott Card, 2010, Ender series, 2, Scifi
+9780812509250, Xenocide, Orson Scott Card, 2010, Ender series, 3, Scifi
+9780812522396, Children of the Mind, Orson Scott Card, 2010, Ender series, 4, Scifi
+9780812575712, Ender's Shadow, Orson Scott Card, 2010, Bean series, 1, Scifi
+9780812565959, Shadow of the Hegemon, Orson Scott Card, 2010, Bean series, 2, Scifi
+9780312707132, Shadow Puppets, Orson Scott Card, 2010, Bean series, 3, Scifi
+9780812571394, Shadow of the Giant, Orson Scott Card, 2010, Bean series, 4, Scifi
+9780765342980, Kushiel's Dart, Jacqueline Carey, 2016, Kushiel's Chosen, 1, Fantasy
+9780062572233, American Gods, Neil Gaiman, 2018, , 0, Fantasy
+9780061689246, Stardust, Neil Gaiman, 2017, , 0, Fantasy
+9780441172719, Dune, Frank Herbert, 2012, Dune, 1, Scifi
+9780553593716, A Game of Thrones, George R.R. Martin, 2014, A Song of Ice and Fire, 1, Fantasy
+9780553579901, A Clash of Kings, George R.R. Martin, 2015, A Song of Ice and Fire, 2, Fantasy
+9780553573428, A Storm of Swords, George R.R. Martin, 2015, A Song of Ice and Fire, 3, Fantasy
+9780553582024, A Feast for Crows, George R.R. Martin, 2015, A Song of Ice and Fire, 4, Fantasy
+9780553582017, A Dance with Dragons, George R.R. Martin, 2015, A Song of Ice and Fire, 5, Fantasy
+9780345387790, Powers That Be, Anne McCaffrey, 2009, Petaybee, 1, Scifi
+9780345387806, Power Lines, Anne McCaffrey, 2009, Petaybee, 2, Scifi
+9780345387813, Power Play, Anne McCaffrey, 2009, Petaybee, 3, Scifi
+9780345470065, Deluge, Anne McCaffrey, 2009, Petaybee, 4, Scifi
+9780441735761, The Rowan, Anne McCaffrey, 2009, Talent, 1, Scifi
+9780441135561, Damia, Anne McCaffrey, 2009, Talent, 2, Scifi
+9780441000074, Damia's Children, Anne McCaffrey, 2009, Talent, 3, Scifi
+9781501217517, Lyon's Pride, Anne McCaffrey, 2010, Talent, 4, Scifi
+9781501282164, The Tower and the Hive, Anne McCaffrey, 2010, Talent, 5, Scifi
+9780345327864, Crystal Singer, Anne McCaffrey, 2011, Killashandra, 1, Scifi
+9780061057892, Acorna, Anne McCaffrey, 2010, Acorna, 1, Scifi
+9780061057908, Acorna's Quest, Anne McCaffrey, 2010, Acorna, 2, Scifi
+9780345335463, Dragonflight, Anne McCaffrey, 2011, Acorna, 3, Scifi
+9780345335081, Dragonquest, Anne McCaffrey, 2011, Pern, 1, Scifi
+9780689860089, Dragonsong, Anne McCaffrey, 2011, Pern, 2, Scifi
+9780689860072, Dragonsinger, Anne McCaffrey, 2011, Pern, 3, Scifi
+9780345341679, The White Dragon, Anne McCaffrey, 2011, Pern, 4, Scifi
+9780689860065, Dragondrums, Anne McCaffrey, 2011, Pern, 5, Scifi
+9780375826689, Eragon, Christopher Paolini, 2011, Inheritance, 1, Fantasy
+9780375840401, Eldest, Christopher Paolini, 2012, Inheritance, 2, Fantasy
+9780375826740, Brisingr, Christopher Paolini, 2012, Inheritance, 3, Fantasy
+9780375846311, Inheritance, Christopher Paolini, 2012, Inheritance, 4, Fantasy
+9780590353403, Harry Potter and the Sorcerer's Stone, J.K. Rowling, 2006, Harry Potter, 1, Fantasy
+9780439064873, Harry Potter and the Chamber of Secrets, J.K. Rowling, 2006, Harry Potter, 2, Fantasy
+9780439136358, Harry Potter and the Prisoner of Azkaban, J.K. Rowling, 2006, Harry Potter, 3, Fantasy
+9780439139601, Harry Potter and the Goblet of Fire, J.K. Rowling, 2006, Harry Potter, 4, Fantasy
+9780439358064, Harry Potter and the Order of the Pheonix, J.K. Rowling, 2006, Harry Potter, 5, Fantasy
+9780439785969, Harry Potter and the Half-Blood Prince, J.K. Rowling, 2006, Harry Potter, 6, Fantasy
+9780545139700, Harry Potter and the Deathly Hallows, J.K. Rowling, 2007, Harry Potter, 7, Fantasy
+9780765377135, The Final Empire, Brandon Sanderson, 2018, Mistborn, 1, Fantasy
+9780765356130, The Well of Ascension, Brandon Sanderson, 2019, Mistborn, 2, Fantasy
+9780765316899, The Hero of Ages, Brandon Sanderson, 2019, Mistborn, 3, Fantasy
+9780765368546, Alloy of Law, Brandon Sanderson, 2017, Mistborn, 4, Fantasy
+9780385743570, Steelheart, Brandon Sanderson, 2015, The Reckoners, 1, Fantasy
+9780385743594, Firefight, Brandon Sanderson, 2015, The Reckoners, 2, Fantasy
+9780385743617, Calamity, Brandon Sanderson, 2016, The Reckoners, 3, Fantasy
+9780044408123, The Hobbit, J.R.R. Tolkien, 2017, The Lord of the Rings, 0, Fantasy
+9780780637009, The Fellowship of the Ring, J.R.R. Tolkien, 2016, The Lord of the Rings, 1, Fantasy
+9780345325815, The Silmarillion, J.R.R. Tolkien, 2017, The Lord of the Rings, 0, Fantasy
+9780060000028, Into the Wild, Erin Hunter, 2007, Warriors, 1, Fantasy
+9780062366979, Fire and Ice, Erin Hunter, 2007, Warriors, 2, Fantasy
+9780062366986, Forest of Secrets, Erin Hunter, 2007, Warriors, 3, Fantasy
+9780062366993, Rising Storm, Erin Hunter, 2007, Warriors, 4, Fantasy
+9780062367006, A Dangerous Path, Erin Hunter, 2007, Warriors, 5, Fantasy
+9780062367013, The Darkest Hour, Erin Hunter, 2007, Warriors, 6, Fantasy
+9780060577339, Magyk, Angie Sage, 2013, Septimus Heap, 1, Fantasy
+9780060577360, Flyte, Angie Sage, 2013, Septimus Heap, 2, Fantasy
+9780060577391, Physik, Angie Sage, 2013, Septimus Heap, 3, Fantasy
+9780060882099, Queste, Angie Sage, 2013, Septimus Heap, 4, Fantasy
+9781107534056, Proofs and Refutations, Imre Lakatos, 2016, , 0, Nonfiction
+9780486264783, The Importance of Being Earnest, Oscar Wilde, 2015, , 0, Fiction
+9780141439518, Pride and Prejudice, Jane Austen, 2015, , 0, Fiction
+9780375725845, Perfume, Patrick Suskind, 2013, , 0, Fantasy
+9780142437339, The Crucible, Arthur Miller, 2014, , 0, Fiction
+9780706418828, The Picture of Dorian Gray, Oscar Wilde, 2015, , 0, Fiction
+9780312367541, A Wrinkle in Time, Madeline L'Engle, 2009, Time Quintet, 1, Scifi
+9781442495760, May Bird and the Ever After, Jodi Lynn Anderson, 2008, May Bird, 1, Fantasy
+9780439888110, Princess Academy, Shannon Hale, 2010, Princess Academy, 1, Fantasy
+9780547258300, Graceling, Kristin Cashore, 2010, Graceling Realm, 1, Fantasy
+9780142415917, Fire, Kristin Cashore, 2010, Graceling Realm, 2, Fantasy
+9780142426012, Bitterblue, Kristin Cashore, 2012, Graceling Realm, 3, Fantasy
+9780142417119, Eon, Alison Goodman, 2012, Eon, 1, Fantasy
+9780142420935, Eona, Alison Goodman, 2012, Eon, 2, Fantasy
+9780440418320, The Golden Compass, Sir Philip Pullman, 2010, His Dark Materials, 1, Fantasy
+9780440418337, The Subtle Knife, Sir Philip Pullman, 2014, His Dark Materials, 2, Fantasy
+9780440418566, The Amber Spyglass, Sir Philip Pullman, 2014, His Dark Materials, 3, Fantasy
+9780451457813, Storm Front, Jim Butcher, 2010, Harry Dresden novels, 1, Fantasy
+9780451458124, Fool Moon, Jim Butcher, 2013, Harry Dresden novels, 2, Fantasy
+9780345334312, The Ship Who Sang, Anne McCaffrey, 2016, Brainships, 1, Scifi
