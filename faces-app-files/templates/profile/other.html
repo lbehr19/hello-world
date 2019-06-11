@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}User{% endblock %}</h1>
+  {% if g.user[0] == viewer[0] %}
+    <a class="action" href="{{ url_for('edit_profile', username=viewer[0]) }}">Edit</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+    <article class="user">
+      <header>
+        <div>
+          <h1>{{ viewer[2] }}, aka @{{ viewer[0] }}</h1>
+          <div class="about">
+            <ul>
+              <li>from {{viewer[3]}}</li>
+              <li>Twitter: {{viewer[5]}}</li>
+              <li>Instagram: {{viewer[6]}}</li>
+              <li>Facebook: {{viewer[7]}}</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <p class="body">
+        <ul>
+          <li><label>Average Rating: {{ avg }}</label></li>
+          <li>
+            <label>Best Friend: @<a href="{{ url_for('view_user', username=bff[1]) }}">{{ bff[1] }}</a></label>
+                ratings: {{ bff[0] }}
+          </li>
+          <li>
+            <label>Top Emoji: {{emoji[0]}} ({{emoji[1]}})</label>
+          </li>
+          <li>Ratings breakdown:
+            {% for type in breakdown.keys() %}
+            <li>{{type}}: {{('%.3f') % (breakdown[type] * 100)}}%</li>
+            {% endfor %}
+          </li>
+        </ul>
+        <div>
+          <label>
+            See what people are saying about {{viewer[0]}}:
+          </label>
+          <ul>
+            {% for comment in comments %}
+            <li>{{comment[0]}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </p>
+    </article>
+{% endblock %}
