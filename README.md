@@ -5,14 +5,14 @@ All of these projects (with the exception of the RISC-V simulation software) wer
 I started coding in 2017 when I began taking computer science courses in college. In the course of my studies, I've become an excellent writer and researcher, and I have gained general knowledge on a wide variety of CS topics, including databases, AI, programming languages, and computer organization. 
 
 In the course of my studies, I have created programs in the following languages:
-  Python
-  Java 
-  JavaScript (with HTML and CSS)
-  Scheme
-  SQL (using Python as a host language)
-  MIPS assembly language
-  RISC-V assembly language
-  C (very briefly)
+  -Python
+  -Java 
+  -JavaScript (with HTML and CSS)
+  -Scheme
+  -SQL (using Python as a host language)
+  -MIPS assembly language
+  -RISC-V assembly language
+  -C (very briefly)
   
 I have become familiar with specific packages including Keras (Tensorflow), SQLite3, BeautifulSoup, and some of the Flask packages.
 I am also very adept with the JavaFX library. 
