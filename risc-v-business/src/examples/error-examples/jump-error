@@ -1,0 +1,12 @@
+#A function that causes an error from giving a literal address in a jump instead of a symbol.
+
+
+#Adding all evens up to 100
+addi t0, zero, 100
+addi t1, zero, 2
+
+loop: beq t0, t2, loop-exit 
+add t2, t2, t1  
+jump 6    #Error here: branch address must be a symbol!
+
+loop-exit: add s0, t2, zero #Put final result in s0

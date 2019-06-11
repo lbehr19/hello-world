@@ -1,0 +1,16 @@
+#A non-working Ulam function that creates an infinite loop.
+
+addi a0, zero, 5
+addi s0, zero, 1  
+jal loop
+
+loop: and t0, a0, s0
+beq t0, s0, odd
+srl a0, a0, s0
+bne a0, s0, loop
+
+odd: add t1, a0, a0
+add a0, a0, t1
+add a0, a0, s0
+beq zero, zero, loop #will always loop here!
+ 

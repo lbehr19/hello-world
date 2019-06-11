@@ -1,0 +1,9 @@
+#A function causing an error from having two of the same label.
+
+start: addi a0, zero, 5
+
+start: beq a0, 0, END
+addi a0, a0, -1
+j start  #Error! Where is the program jumping to?
+
+END: add s0, a1, zero
