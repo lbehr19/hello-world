@@ -1,0 +1,24 @@
+# Compute 1 + 2 + ... + n recursively. Returns :15:
+
+main: addi s0, zero, 5
+    add a0, s0, zero
+    jal rec_sum
+    j exit
+   
+rec_sum: addi sp, sp, -8
+    sw ra, 4(sp)
+    sw s0, 0(sp)
+    add s0, a0, zero
+    bne s0, zero, rec_sum_recurse
+    j rec_sum_exit
+
+rec_sum_recurse: addi a0, s0, -1
+    jal rec_sum     # call rec_sum(n-1) 
+    add v0, s0, v0  # compute n + that result
+    
+rec_sum_exit: lw ra, 4(sp)
+    lw s0, 0(sp)
+    addi sp, sp, 8
+    jr ra
+    
+exit: add r1, v0, zero  #a0 now has result 

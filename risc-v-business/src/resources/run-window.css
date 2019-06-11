@@ -1,0 +1,58 @@
+.root {
+	-fx-font-family: 'Courier New';
+	-fx-font-weight: bold;
+	-fx-background: #f4dcf4;
+	-fx-control-inner-background: #f4f4f4;
+}
+
+.code-area {
+	-fx-border-color: darkgrey;
+	-fx-border-width: 2px;
+	-fx-background-color: #f4f4f4;
+	-fx-font-size: 10pt;
+}
+
+.button {
+	-fx-background-color: orchid;
+	-fx-border-radius: 5;
+	-fx-font-size: 10pt;
+}
+
+#error-field {
+	-fx-background-color: lightgrey;
+}
+
+#error-field .text {
+	-fx-fill: red;
+	-fx-font-size: 10pt;
+}
+
+#input-field .text {
+	-fx-fill: green;
+	-fx-font-size: 10pt;
+}
+
+#tool-bar {
+	-fx-background-color: darkorchid; 
+}
+
+.label-custom {
+	-fx-font-size: 12pt;
+}
+
+.small-text {
+	-fx-font-size: 10pt;
+}
+
+#memory-display {
+	-fx-font-size: 10pt;
+	-fx-padding: 10 10 10 10;
+}
+
+.highlight-text {
+	-rtfx-background-color: violet;
+}
+
+.unhighlight-text {
+	-rtfx-background-color: #f4f4f4;
+}
