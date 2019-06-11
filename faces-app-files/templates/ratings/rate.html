@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Rating{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Who would you like to rate?</label>
+    <input name="username" id="title" value="{{ request.form['username'] }}" required>
+    <br>
+    <label for="stars"> Select a value between 0 and 5. </label>
+    <span>
+      <label>0</label>
+      <input type="radio" id="zero" name="stars" value=0>
+      <input type="radio" id="one" name="stars" value=1>
+      <input type="radio" id="two" name="stars" value=2>
+      <input type="radio" id="three" name="stars" value=3 checked>
+      <input type="radio" id="four" name="stars" value=4>
+      <input type="radio" id="five" name="stars" value=5>
+      <label>5</label>
+    </span>
+
+    <label for="context">Select a context for the interaction.</label> 
+    <select name="context" required>
+      <option value="personal">Personal</option>
+      <option value="commercial">Commercial (in person)</option>
+      <option value="intimate">Intimate</option>
+      <option value="media">Commercial (in media)</option>
+      <option value="professional">Professional</option>
+      <option value="political">Political</option>
+    </select>
+    <br>
+
+    <label for="emojies">
+      Select faces. 
+    </label>
+    <span>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😎"> 😎 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🤠"> 🤠 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="💖"> 💖 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😊"> 😊 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😂"> 😂 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😘"> 😘 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🤪"> 🤪 
+        <span class="checkmark"></span>
+      </label>
+    </span>
+    <span>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="💣"> 💣 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🔥"> 🔥 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😆"> 😆 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🤑"> 🤑 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🌞"> 🌞 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🍆"> 🍆 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🍑"> 🍑 
+        <span class="checkmark"></span>
+      </label>
+    </span>
+    <span>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🦄"> 🦄 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😲"> 😲 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🤫"> 🤫 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🙃"> 🙃 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="💩"> 💩 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🤢"> 🤢 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😑"> 😑 
+        <span class="checkmark"></span>
+      </label>
+    </span>
+    <span>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😕"> 😕 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🙄"> 🙄 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🖕"> 🖕 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="💔"> 💔 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="💀"> 💀 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="🤬"> 🤬 
+        <span class="checkmark"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="emojies" value="😭"> 😭 
+        <span class="checkmark"></span>
+      </label>
+    </span>
+    <span>
+
+    <label for="body">Add comments.</label>
+    <textarea name="text" id="body">{{ request.form['text'] }}</textarea>
+
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

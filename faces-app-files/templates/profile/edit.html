@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit Profile for "{{ viewer[0] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label>Name</label>
+    <input name="name">{{viewer['name']}}</textarea>
+    <label>Hometown</label>
+    <input name="hometown">{% if not location is none %}{{location}}{% endif %}</textarea>
+    <ul>
+      <li>
+        <label>Facebook info</label>
+        <input name="fb">{% if not fb is none%}{{ fb }}{% endif %}</textarea>
+      </li>
+      <li>
+          <label>Instagram handle</label>
+          <input name="insta">{% if not insta is none %}{{insta}}{% endif %}</textarea>
+      </li>
+      <li>
+          <label>Twitter handle</label>
+          <input name="twitter">{% if not twitter is none%}{{twitter}}{% endif %}</textarea>
+      </li>
+    </ul>
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+ 
+{% endblock %}
+
+ <!-- <form action="{{ url_for('ratings.delete', id=post['id']) }}" method="post"> -->
+ <!--   <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');"> -->
+  <!-- </form> -->

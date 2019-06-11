@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Ratings{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <article class="post">
+    <header>
+      <div>
+        <h1>Highest Rated Person</h1>
+      </div>
+    </header>
+    <p class="body">
+      Name: {{highest[0]}} (@<a class="action" href="{{url_for('view_user', username=highest[1])}}">{{highest[1]}}</a>)
+      Rated at {{highest[2]}} stars! ✨🥇🎉🎊
+    </p>
+  </article>
+  <article class="post">
+    <header>
+      <div>
+        <h1>Most Rated Person</h1>
+      </div>
+    </header>
+    <p class="body">
+      Name: {{most[0]}} (@<a class="action" href="{{url_for('view_user', username=most[1])}}">{{most[1]}}</a>)
+      Rated {{most[2]}} times! ✨🥇🎉🎊
+    </p>
+  </article><article class="post">
+    <header>
+      <div>
+        <h1>Most Controversially Rated Person</h1>
+      </div>
+    </header>
+    <p class="body">
+      Name: {{cont[0]}} (@<a class="action" href="{{url_for('view_user', username=cont[1])}}">{{cont[1]}}</a>)
+      Controversy Score: {{cont[2]}} times! ✨🥇🎉🎊
+    </p>
+  </article>
+  {% for emoji in emojies %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>Most {{ emoji[0] }} users:</h1>
+        </div>
+      </header>
+      <p class="body">
+      {% for result in emoji[1] %}
+      @<a class="action" href="{{url_for('view_user', username=result[1])}}">{{result[1]}}</a>: {{result[0]}}
+      {% endfor %}
+      
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
