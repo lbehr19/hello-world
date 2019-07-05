@@ -1,0 +1,12 @@
+This project was originally created as an assignment for an intro course in Web Programming. The assignment guidelines asked students to demonstrate the different skills learned throughout the course, including timers, graphics and animation. Other than that, there had to be a way to win the game and a way to lose the game. 
+
+My project is loosely inspired by turn-based dungeon crawler games. In this grid-based game, the player (the blue circle) moves using arrow keys, navigating around a randomly generated map to find the goal (the yellow square). While doing this, the player must also avoid two types of enemies: the purple enemies are called "glitches" because they randomly jump to any square within four coordinates of its position and move through walls. The red enemies are called "chasers" because they move in the direction of the player. The chasers are somewhat overpowered because they can move diagonally around walls, so they can get around obstacles fairly quickly. If the player runs into an enemy, the game is over and a message will display how the player died. As time passes, the number of enemies increases, making the game more difficult. The user can press the space bar to pause the game (although the timer continues - which is fine, because the game is independent of the timer). 
+
+My original idea was to have the enemies move as the player moves, so it's actually turn-based, but I gave up on that to better utilize the setTimeout aspect of the program, per the assignment guidelines. I had also originally thought of drawing the map myself, rather than randomly generating it, but I did not have time to implement that before the assignment deadline. Now, I think it's a better idea to keep the randomly generated map, as that will make it easier to implement new levels. 
+
+Now that I have more time and experience with JavaScript and CSS, I have a few ideas on how to improve the project:
+  Add an additional enemy type ("slimes") that moves in a set direction, rather than randomly or chasing the player. 
+  Adjust the timer so that it pauses with the rest of the game. 
+  Improve layout/style of the webpage. 
+  Add some kind of score manipulator/additional objective (i.e. 'collect gold to increase score'). It would also be nice to keep track of the score with a leaderboard. 
+  Add levels - if the player reaches the goal without dying, the game resets, but the "level" increases in difficulty (more/faster enemies). 
