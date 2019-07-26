@@ -1,3 +1,4 @@
+package game;
 // Data Structures & Algorithms
 // Spring 2018
 // HW2: bfs/dfs traversal
@@ -21,11 +22,19 @@ public class Pair<T, U> {
     public T first() { return _first; }
     public U second() { return _second; }
 
-    public boolean equals(Pair<T, U> otherPair) {
-        return _first.equals(otherPair.first()) &&
+	@Override
+    @SuppressWarnings("unchecked")
+    public boolean equals(Object o) {
+        Pair<T, U> otherPair = (Pair<T,U>)o;
+    	return _first.equals(otherPair.first()) &&
             _second.equals(otherPair.second());
     }
 
+    @Override
+    public int hashCode() {
+    	return _first.hashCode() + _second.hashCode();
+    }
+    
     public String toString() {
         return "<" + _first + ", " + _second + ">";
     }
