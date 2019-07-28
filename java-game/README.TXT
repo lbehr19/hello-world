@@ -1,31 +1,31 @@
-PROJECT TITLE: "Conference Game"
-PURPOSE OF PROJECT: for class credit
-VERSION or DATE: 5.12.18
-HOW TO START THIS PROJECT: Run the JavaFX application to begin
-AUTHORS: Leah Behr (inspired by an example from an online tutorial - URL below); Pair class contributed by Michael Siff
-USER INSTRUCTIONS: Have fun!
+PROJECT TITLE: Dungeon Crawler
+PURPOSE OF PROJECT: for fun!
+VERSION or DATE: 6.28.19
+AUTHORS: Leah Behr; Pair class contributed by Michael Siff
 
-https://gamedevelopment.tutsplus.com/tutorials/introduction-to-javafx-for-game-development--cms-23835
+Notes:
+This is a Java application programmed with the JavaFX library. I've been using Eclipse to edit/run it while I'm working on it. 
+The project was originally created for academic credit as a Java version of my JavaScript-based game (also included in this repo - 
+see js-game folder). It's also heavily inspired by Crypt of the Necrodancer. 
 
-Notes: (what works, what doesn't work)
-Player presses arrow keys to move; space bar is an attack, with range 1 (range includes diagonals). Pressing R resets the game. 
-There are bugs in the enemy movement: I had intended for them to move only in 1 direction at a time, but they're moving diagonally.
-Plus, sometimes they move away from the player when they should be moving towards player (which is a minor problem). The game 
-ends when either the player successfully reaches the unlocked door, or player runs into an enemy and dies. The gameOver
-function finishes the game and reports the score; however, the text only shows up when the player presses another button (this is 
-an unintended bug). Another problem is that the score should be showing up while the game is running, but it's not. 
+How to Play:
+Use the arrow keys to move. Avoid running into enemies, pick up the key, and get out of the dungeon. 
+Use space bar to swing your sword - but keep in mind, you might miss. 
 
-What I wish I had time for:
-I included some small variables in the Main class to support future implementation of levels - the reason why I don't have more
-than one level is because I didn't have time to hard-code additional wall maps. Something I could've done to make that easier
-would be to have a 2D array to keep track of wall positions, rather than list of coordinate pairs. Anyway, to make the levels
-actually work, I'd have to write a new constructor for Walls - Walls(int l) where l is the level. 
-I also regret not having more javadoc comments. 
+Bugs:
+-the enemies are not moving in the ways I originally intended; they occasionally stop moving as if stuck. 
+-Score should be fixed so that it always updates. Also, change score modifier for winning - 
+     +15 for getting the key, +15 for going through the door, rather than the straight +25 for reaching the unlocked door.
+-when player and enemy overlap, the game doesn't always end. 
 
-A few other ideas to improve the game:
-Include 'treasure' that drops when enemies die, or spawn at random points on the map. 
-Add scoring leaderboards? So that the player can compare to the top ten scores. 
-Add new types of enemies, i.e. sentries, ghosts, things like that. 
-Add in bonus point rewards for finishing levels quickly (timed aspect)
-Add in visibility moderator - player can only see a set radius (optional - can't see around walls). 
-    If visibility is added, consider altering Chaser movement so that they only chase when the player sees them. 
+Planned Improvements:
+-Include 'treasure' that either appears in hard-to-reach places or drops when enemies die.
+-Add new types of enemies: some that move in set patterns, some that can move through walls, things like that.
+-Implement 'health' as a concept for player/enemies; attacks do x damage, or player dies after three hits, something like that. 
+
+Possible Improvements:
+-Implement levels; when player wins, they move on to the next level, with a harder map, more enemies, etc.
+-Add a 'scoreboard' type feature so that player can compare with the top 10 scores. 
+-Add bonus points for finishing levels quickly (timed aspect)
+-Implement visibility moderator - player can only see a set radius around them (optional - can't see around walls)
+    If visibility is added, modify enemy movement so that they only move when visible.
