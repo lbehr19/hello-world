@@ -71,6 +71,7 @@ public class EnemyGlitch
         }
     }
     
+    //modifies a given list to contain the positions of the enemies.
     public List<Pair<Integer, Integer>> getPos(List<Pair<Integer, Integer>> target) {
     	target.clear();
     	for (Sprite g : glist) {
@@ -79,6 +80,7 @@ public class EnemyGlitch
     	return target;
     }
     
+    //removes a glitch from the global list based on its position
     public boolean killGlitch(Pair<Integer, Integer> target) {
     	for (Sprite glitch : glist) {
     		Pair<Integer, Integer> gPos = glitch.getPos();
