@@ -37,6 +37,7 @@ public class Main extends Application
 	Walls wallset;
 	
 	EnemyGlitch glitches;
+	private int DEFAULT_ENEMY_COUNT = 4;
 	
     Player p;
     
@@ -66,7 +67,7 @@ public class Main extends Application
         stage.setScene(scene);
         
         Canvas cvs = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
-        //TODO: make it so that the canvas can't be resized - keep the BorderPane set to its original size. 
+        //TODO: make it so that the window can't be resized - keep the BorderPane set to its original size. 
         betaRoot.setCenter(cvs);
         GraphicsContext gc = cvs.getGraphicsContext2D();
         
@@ -78,7 +79,7 @@ public class Main extends Application
         wallset = new Walls();
         
         p = new Player(wallset);
-        glitches = new EnemyGlitch(wallset);
+        glitches = new EnemyGlitch(wallset, DEFAULT_ENEMY_COUNT);
         
         door = new Sprite(wallset);
         door.setImage(CLOSED_DOOR);
@@ -92,13 +93,18 @@ public class Main extends Application
                         String code = e.getCode().toString();
                         if (code.equals("R")) {
                         	reset(gc);
+                        	c.clearMessages();
                         } else {
                         	Pair<Integer, Integer> pLoc = Player.getPos();
                         	List<Pair<Integer, Integer>> gLocs = new ArrayList<Pair<Integer, Integer>>();
                         	gLocs = glitches.getPos(gLocs);
                         	if (code.equals("SPACE")) {
+                        		c.printMessage("You swing your sword...");
                         		if (attack(pLoc, gLocs)) {
                         			points+= 10;
+                        			c.printMessage("You hit!");
+                        		} else {
+                        			c.printMessage("You miss! Watch out!");
                         		}
                         	} else {
                         		p.update(code);
@@ -110,7 +116,9 @@ public class Main extends Application
                         		}
                         	}
                         	glitches.update();
-                    		if (intersects(pLoc, gLocs)) {
+                        	gLocs = glitches.getPos(gLocs);
+                        	boolean overlap = intersects(pLoc, gLocs);
+                    		if (overlap) {
                     			gameOver("You have died.", gc);
                     		}
                         }
@@ -158,7 +166,7 @@ public class Main extends Application
      */
     private void reset(GraphicsContext gc) {
     	p = new Player(wallset);
-    	glitches = new EnemyGlitch(wallset);
+    	glitches = new EnemyGlitch(wallset, DEFAULT_ENEMY_COUNT);
     	door.setImage(CLOSED_DOOR);
     	points = 0;
     	level = 0;
@@ -197,6 +205,7 @@ public class Main extends Application
      * @param gc - the GraphicsContext for rendering
      */
     private void gameOver(String text, GraphicsContext gc) {
+    	updateScreen(gc);
     	gameOn = false;
     	gc.setTextAlign(TextAlignment.CENTER);
     	gc.setTextBaseline(VPos.CENTER);
