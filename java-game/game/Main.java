@@ -2,16 +2,21 @@ package game;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.Group;
+//import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
@@ -32,6 +37,7 @@ public class Main extends Application
 	Walls wallset;
 	
 	EnemyGlitch glitches;
+	private int DEFAULT_ENEMY_COUNT = 4;
 	
     Player p;
     
@@ -39,6 +45,11 @@ public class Main extends Application
     Pair<Integer, Integer> DOOR_SPAWN = new Pair<Integer, Integer>(8, 1);
     Image OPEN_DOOR = new Image("open_door.jpg", 50, 50, false, false);
     Image CLOSED_DOOR = new Image("door_sprite.png", 50, 50, false, false);
+    
+    private Console c = new Console();
+    
+    private int SCREEN_WIDTH = 900;
+    private int SCREEN_HEIGHT = 600;
     
     boolean gameOn = true;
     
@@ -51,18 +62,24 @@ public class Main extends Application
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("the game");
-        Group root = new Group();
-        Scene scene = new Scene(root);
+        BorderPane betaRoot = new BorderPane();
+        Scene scene = new Scene(betaRoot);
         stage.setScene(scene);
         
-        Canvas cvs = new Canvas(900, 600);
-        root.getChildren().add(cvs);
+        Canvas cvs = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
+        //TODO: make it so that the window can't be resized - keep the BorderPane set to its original size. 
+        betaRoot.setCenter(cvs);
         GraphicsContext gc = cvs.getGraphicsContext2D();
+        
+        ScrollPane console = new ScrollPane(c.getPane());
+        console.setFitToWidth(true);
+        betaRoot.setRight(console);
+        betaRoot.setPrefSize(SCREEN_WIDTH + 250, SCREEN_HEIGHT);
         
         wallset = new Walls();
         
         p = new Player(wallset);
-        glitches = new EnemyGlitch(wallset);
+        glitches = new EnemyGlitch(wallset, DEFAULT_ENEMY_COUNT);
         
         door = new Sprite(wallset);
         door.setImage(CLOSED_DOOR);
@@ -76,24 +93,32 @@ public class Main extends Application
                         String code = e.getCode().toString();
                         if (code.equals("R")) {
                         	reset(gc);
+                        	c.clearMessages();
                         } else {
                         	Pair<Integer, Integer> pLoc = Player.getPos();
                         	List<Pair<Integer, Integer>> gLocs = new ArrayList<Pair<Integer, Integer>>();
                         	gLocs = glitches.getPos(gLocs);
                         	if (code.equals("SPACE")) {
+                        		c.printMessage("You swing your sword...");
                         		if (attack(pLoc, gLocs)) {
                         			points+= 10;
+                        			c.printMessage("You hit!");
+                        		} else {
+                        			c.printMessage("You miss! Watch out!");
                         		}
                         	} else {
                         		p.update(code);
-                        		if (Player.getPos().equals(DOOR_SPAWN)) {
+                        		pLoc = Player.getPos();
+                        		if (pLoc.equals(DOOR_SPAWN)) {
                         			//level++;
                         			points += 25;
                         			gameOver("You Win!", gc);
                         		}
                         	}
                         	glitches.update();
-                    		if (intersects(pLoc, gLocs)) {
+                        	gLocs = glitches.getPos(gLocs);
+                        	boolean overlap = intersects(pLoc, gLocs);
+                    		if (overlap) {
                     			gameOver("You have died.", gc);
                     		}
                         }
@@ -112,7 +137,7 @@ public class Main extends Application
     private void updateScreen(GraphicsContext gc) {
     	if (gameOn) {
     		gc.setFill(Color.rgb(165, 128, 107));
-    		gc.fillRect(0,0, 900, 600);
+    		gc.fillRect(0,0, SCREEN_WIDTH, SCREEN_HEIGHT);
     		wallset.render(gc);
     		if (!p.hasKey()) {
     			door.render(gc);
@@ -122,13 +147,16 @@ public class Main extends Application
     		}
     		glitches.render(gc);
     		p.render(gc);
-    		//TODO: make it so the score actually shows up on screen
-    		gc.setFill(Color.BLACK);
-    		gc.setStroke(Color.BLACK);
+    		gc.setFill(Color.GOLD);
+    		gc.setStroke(Color.GOLD);
+    		gc.setTextAlign(TextAlignment.CENTER);
+    		gc.setTextBaseline(VPos.TOP);
     		Font theFont = Font.font("Times New Roman", 24);
     		gc.setFont(theFont);
-    		gc.fillText("Score: " + points, 0, 0);
-    		gc.strokeText("Score: " + points, 0, 0);
+    		String message = "Score: " + points;
+    		int centerX = SCREEN_WIDTH / 2;
+    		gc.fillText(message, centerX, 10);
+    		gc.strokeText(message, centerX, 10);
     	}
     }
     
@@ -138,7 +166,7 @@ public class Main extends Application
      */
     private void reset(GraphicsContext gc) {
     	p = new Player(wallset);
-    	glitches = new EnemyGlitch(wallset);
+    	glitches = new EnemyGlitch(wallset, DEFAULT_ENEMY_COUNT);
     	door.setImage(CLOSED_DOOR);
     	points = 0;
     	level = 0;
@@ -177,21 +205,26 @@ public class Main extends Application
      * @param gc - the GraphicsContext for rendering
      */
     private void gameOver(String text, GraphicsContext gc) {
+    	updateScreen(gc);
     	gameOn = false;
+    	gc.setTextAlign(TextAlignment.CENTER);
+    	gc.setTextBaseline(VPos.CENTER);
         gc.setFill(Color.RED);
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(2);
         Font theFont = Font.font( "Times New Roman", FontWeight.BOLD, 48 );
+        int centerX = SCREEN_WIDTH / 2;
+        int centerY = SCREEN_HEIGHT / 2;
         gc.setFont( theFont );
-        gc.fillText( text, 350, 250 );
-        gc.strokeText( text, 350, 250 );
+        gc.fillText( text, centerX, centerY - 50 );
+        gc.strokeText( text, centerX, centerY - 50 );
         gc.setFill(Color.BLACK);
         theFont = Font.font("Times New Roman", 24);
         gc.setLineWidth(1);
         gc.setFont(theFont);
         String message = "Final Score: " + points + "\nPress R to restart.";
-        gc.fillText(message, 350, 300);
-        gc.strokeText(message, 350, 300);
+        gc.fillText(message, centerX, centerY);
+        gc.strokeText(message, centerX, centerY);
     }
     
     /**

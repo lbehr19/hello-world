@@ -159,7 +159,7 @@ public class Walls
         return new Pair<Integer, Integer>(x, y);
     }
     
-    // I know Mike probably won't be happy with this solution but it works now so I'm leaving it
+    //because I was having issues checking whether a space was a wall or open air
     public boolean contains(Pair<Integer, Integer> pos) {
     	return walls.contains(pos);
     }
