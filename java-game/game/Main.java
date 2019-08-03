@@ -38,6 +38,7 @@ public class Main extends Application
 	
 	EnemyGlitch glitches;
 	private int DEFAULT_ENEMY_COUNT = 4;
+	Coin currency;
 	
     Player p;
     
@@ -54,6 +55,7 @@ public class Main extends Application
     boolean gameOn = true;
     
     int points = 0;
+    int gold = 0;
 
     public static void main(String[] args) {
         launch();
@@ -78,10 +80,11 @@ public class Main extends Application
         
         wallset = new Walls();
         
-        p = new Player(wallset);
-        glitches = new EnemyGlitch(wallset, DEFAULT_ENEMY_COUNT);
+        p = new Player(wallset, DOOR_SPAWN);
+        glitches = new EnemyGlitch(wallset, DOOR_SPAWN, DEFAULT_ENEMY_COUNT);
+        currency = new Coin(wallset, DOOR_SPAWN);
         
-        door = new Sprite(wallset);
+        door = new Sprite(wallset, DOOR_SPAWN);
         door.setImage(CLOSED_DOOR);
         door.setPos(DOOR_SPAWN);
         
@@ -109,10 +112,21 @@ public class Main extends Application
                         	} else {
                         		p.update(code);
                         		pLoc = Player.getPos();
+                        		if (currency.coinsPresent()) {
+                        			ArrayList<Pair<Integer, Integer>> goldSpots = new ArrayList<Pair<Integer, Integer>>();
+                        			goldSpots = currency.getCoins(goldSpots);
+                        			if (intersects(pLoc, goldSpots)) {
+                        				gold += 1;
+                        				currency.takeCoin(pLoc);
+                        			}
+                        		}
                         		if (pLoc.equals(DOOR_SPAWN)) {
                         			//level++;
-                        			points += 25;
+                        			points += 15;
                         			gameOver("You Win!", gc);
+                        		} else if (pLoc.equals(p.KEY_SPAWN)) {
+                        			points += 15;
+                        			c.printMessage("The door is now open.");
                         		}
                         	}
                         	glitches.update();
@@ -146,6 +160,7 @@ public class Main extends Application
     			door.render(gc);
     		}
     		glitches.render(gc);
+    		currency.render(gc);
     		p.render(gc);
     		gc.setFill(Color.GOLD);
     		gc.setStroke(Color.GOLD);
@@ -165,10 +180,12 @@ public class Main extends Application
      * @param gc - the GraphicsContext for the render stuff
      */
     private void reset(GraphicsContext gc) {
-    	p = new Player(wallset);
-    	glitches = new EnemyGlitch(wallset, DEFAULT_ENEMY_COUNT);
+    	p = new Player(wallset, DOOR_SPAWN);
+    	glitches = new EnemyGlitch(wallset, DOOR_SPAWN, DEFAULT_ENEMY_COUNT);
+    	currency = new Coin(wallset, DOOR_SPAWN);
     	door.setImage(CLOSED_DOOR);
     	points = 0;
+    	gold = 0;
     	level = 0;
     	gameOn = true;
     	updateScreen(gc);
@@ -176,9 +193,8 @@ public class Main extends Application
     
     /**
      * attack searches the positions directly adjacent to the player to see if an enemy is there.
-     * If so, it attempts to kill the glitch. Each level, the probability of success drops 20%. 
-     *  	My original plan to make the game harder was to limit the attack range so that it can't 
-     *  	attack diagonally. However, when I tried to implement that, the attack never succeeded. 
+     * If so, it attempts to kill the glitch. There is a 30% chance that the attack doesn't succeed.
+     * If the attack does succeed, the enemy's position is changed to a new Coin object. 
      *  
      * @param p1 - player location
      * @param enemies - list of enemy locations
@@ -191,7 +207,13 @@ public class Main extends Application
     		for (int j = py - 1; j <= py + 1; j++) {
     			Pair<Integer, Integer> search = new Pair<Integer, Integer>(i,j);
     			if (enemies.contains(search) && (randomizer.nextDouble() < SWORD_SHARPNESS)) {
-    				return glitches.killGlitch(search);
+    				if (glitches.killGlitch(search)) {
+    					currency.dropCoin(search);
+    					return true;
+    				} else {
+    					return false;
+    				}
+    				//return glitches.killGlitch(search);
     			}
     		}
     	}
