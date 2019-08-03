@@ -22,10 +22,10 @@ public class Player
     /**
      * Constructor for objects of class Player
      */
-    public Player(Walls w)
+    public Player(Walls w, Pair<Integer, Integer> door)
     {
-    	p = new Sprite(w);
-    	key = new Sprite(w);
+    	p = new Sprite(w, door);
+    	key = new Sprite(w, door);
         p.setImage(PLAYER_IMAGE);
         p.setPos(PLAYER_SPAWN);
         key.setImage(KEY_IMAGE);
