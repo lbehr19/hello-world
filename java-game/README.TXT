@@ -12,16 +12,14 @@ How to Play:
 Use the arrow keys to move. Avoid running into enemies, pick up the key, and get out of the dungeon. 
 Use space bar to swing your sword - but keep in mind, you might miss. 
 
-Bugs:
--the enemies are not moving in the ways I originally intended; they occasionally stop moving as if stuck. 
--Score should be fixed so that it always updates. Also, change score modifier for winning - 
-     +15 for getting the key, +15 for going through the door, rather than the straight +25 for reaching the unlocked door.
--when player and enemy overlap, the game doesn't always end. 
+Problems:
+-Re-sizing the game window prioritizes the center area, which houses the statically-sized canvas, rather than giving extra space 
+     to the right area, which houses the potentially dynamically-sized ScrollPane for the status messages. 
 
 Planned Improvements:
 -Include 'treasure' that either appears in hard-to-reach places or drops when enemies die.
 -Add new types of enemies: some that move in set patterns, some that can move through walls, things like that.
--Implement 'health' as a concept for player/enemies; attacks do x damage, or player dies after three hits, something like that. 
+-Implement 'health' as a concept for player/enemies; i.e. attacks do x damage, player dies after three hits, something like that. 
 
 Possible Improvements:
 -Implement levels; when player wins, they move on to the next level, with a harder map, more enemies, etc.
