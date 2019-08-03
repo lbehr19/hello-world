@@ -22,12 +22,12 @@ public class EnemyGlitch
     private ArrayList<Pair<Integer, Integer>> ENEMY_POS = new ArrayList<Pair<Integer, Integer>>();
     
     
-    public EnemyGlitch(Walls w, int spawnCount) {
+    public EnemyGlitch(Walls w, Pair<Integer, Integer> door, int spawnCount) {
     	int enemyCount = spawnCount > 0 ? Math.min(spawnCount, MAX_ENEMY_COUNT) : MIN_ENEMY_COUNT; 
     	//if supplied number is valid (pos, non-zero number), use it (if it's less than max). Else, use min.
         enemySpawns();
         for (int i = 0; i < enemyCount; i++) {
-            Sprite babyGlitch = new Sprite(w);
+            Sprite babyGlitch = new Sprite(w, door);
             babyGlitch.setImage(GLITCH_IMAGE);
             babyGlitch.setPos(ENEMY_POS.get(i));
             glist.add(babyGlitch);
